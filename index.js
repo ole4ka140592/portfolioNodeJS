@@ -12,8 +12,8 @@ app.use(bodyParser.json())
 let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "free.it.free1@gmail.com", // generated ethereal user
-        pass: "92free.it.free1234567", // generated ethereal password
+        user: "free.it.free1@gmail.com",
+        pass: "92free.it.free1234567",
     },
 });
 
@@ -25,9 +25,9 @@ app.post('/sendMessage', async function (req, res) {
     let {name, email, message} = req.body
 
     let info = await transporter.sendMail({
-        from: "HR writes", // sender address
-        to: "free.it.free1@gmail.com", // list of receivers
-        subject: "HR writes", // Subject line
+        from: "HR writes",
+        to: "free.it.free1@gmail.com",
+        subject: "HR writes",
         html: `<b>Сообщение с вашего Portfolio</b>
         <div>name: ${name}</div>
         <div>email: ${email}</div>
