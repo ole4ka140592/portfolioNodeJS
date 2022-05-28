@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -8,12 +8,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+let portfolio_login = process.env.PORTFOLIO_LOGIN || "---";
+let portfolio_password = process.env.PORTFOLIO_PASSWORD || "---";
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "free.it.free1@gmail.com",
-        pass: "92free.it.free1234567",
+        // user: "free.it.free1@gmail.com",
+        // pass: "92free.it.free1234567",
+        user: portfolio_login,
+        pass: portfolio_password,
     },
 });
 
