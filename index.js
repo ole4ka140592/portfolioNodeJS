@@ -10,12 +10,9 @@ app.use(bodyParser.json())
 
 let portfolio_login = process.env.PORTFOLIO_LOGIN || "---";
 let portfolio_password = process.env.PORTFOLIO_PASSWORD || "---";
-
 let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        // user: "free.it.free1@gmail.com",
-        // pass: "92free.it.free1234567",
         user: portfolio_login,
         pass: portfolio_password,
     },
